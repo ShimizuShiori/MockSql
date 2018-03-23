@@ -40,6 +40,8 @@ node built/index.js tasks/demoTask.json
 }
 ```
 
+[配置文件示例](tasks/demoTask.json)
+
 ### 扩展
 
 本项目是由 *TypeScript* 编写而成。
