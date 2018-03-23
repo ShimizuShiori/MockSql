@@ -39,3 +39,11 @@ node built/index.js tasks/demoTask.json
     "$schema": "./task.schema.json",
 }
 ```
+
+### 扩展
+
+本项目是由 *TypeScript* 编写而成。
+主要扩展的方向是 **值生成器** 和 **Sql生成器**
+
+* 值生成器，是用于以可配置的规则生成待写入值的工具
+* Sql生成器，是用于生成对当前数据库兼容的Insert语句
