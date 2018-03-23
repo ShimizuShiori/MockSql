@@ -1,0 +1,41 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "tsc",
+            "type": "shell",
+            "command": "tsc -p tsconfig.json"
+        },
+        {
+            "label": "del rlt",
+            "type": "shell",
+            "command": "del rlt.sql"
+        },
+        {
+            "label": "run main.js",
+            "type": "shell",
+            "command": "node built/Main.js >> rlt.sql",
+            "dependsOn": ["tsc", "del rlt"]
+        },
+        {
+            "label": "run test.js",
+            "type": "shell",
+            "command": "node built/test.js",
+            "dependsOn": ["tsc"]
+        },
+        {
+            "label": "run index.js",
+            "type": "shell",
+            "command": "node built/index.js",
+            "dependsOn": ["tsc"]
+        },
+        {
+            "label": "open sql",
+            "type": "shell",
+            "command": "rlt.sql",
+            "dependsOn": ["run main.js"]
+        }
+    ]
+}

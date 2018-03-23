@@ -1,0 +1,16 @@
+{
+  "name": "mocksql",
+  "version": "1.0.0",
+  "description": "scaffold for typescript/javascript project",
+  "main": "built/index.js",
+  "dependencies": {
+    "@types/node": "^9.6.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "built/index.js tasks/demoTask.json"
+  },
+  "author": "",
+  "license": "ISC",
+  "bin": "built/index.js"
+}

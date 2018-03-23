@@ -1,0 +1,151 @@
+{
+    "$schema": "./task.schema.json",
+    "dbType": "MSSQL",
+    "tableName": "LES_Productgrouprecord",
+    "fields": [
+        {
+            "name": "IsDeleted",
+            "type": "boolean",
+            "generator": {
+                "type": "Boolean",
+                "inject": {
+                    "Rate": 0
+                }
+            }
+        },
+        {
+            "name": "Name",
+            "type": "string",
+            "generator": {
+                "type": "String",
+                "inject": {
+                    "MinLength": 1,
+                    "MaxLength": 128,
+                    "Type": "Random"
+                }
+            }
+        },
+        {
+            "name": "Descr",
+            "type": "string",
+            "generator": {
+                "type": "String",
+                "inject": {
+                    "MinLength": 1,
+                    "MaxLength": 128,
+                    "Type": "Random"
+                }
+            }
+        },
+        {
+            "name": "TOFollowMode",
+            "type": "int",
+            "generator": {
+                "type": "Int",
+                "inject": {
+                    "Type": "Random",
+                    "SourceType": "List",
+                    "List": [0, 1, 2]
+                }
+            }
+        },
+        {
+            "name": "AutoDelivery",
+            "type": "bit",
+            "generator": {
+                "type": "Boolean",
+                "inject": {
+                    "Rate": 50
+                }
+            }
+        },
+        {
+            "name": "CanMerge",
+            "type": "bit",
+            "generator": {
+                "type": "Boolean",
+                "inject": {
+                    "Rate": 50
+                }
+            }
+        },
+        {
+            "name": "CanSplitByQty",
+            "type": "bit",
+            "generator": {
+                "type": "Boolean",
+                "inject": {
+                    "Rate": 50
+                }
+            }
+        },
+        {
+            "name": "CanSplitByStep",
+            "type": "bit",
+            "generator": {
+                "type": "Boolean",
+                "inject": {
+                    "Rate": 50
+                }
+            }
+        },
+        {
+            "name": "StepPropertyName",
+            "type": "int",
+            "generator": {
+                "type": "Int",
+                "inject": {
+                    "Type": "Random",
+                    "SourceType": "List",
+                    "List": [1, 2, 3, 4]
+                }
+            }
+        },
+        {
+            "name": "CreateTime",
+            "type": "datetime",
+            "generator": {
+                "type": "Datetime",
+                "inject": {
+                    "MinDate": "2018-03-01",
+                    "MaxDate": "2018-03-31"
+                }
+            }
+        },
+        {
+            "name": "UpdateTime",
+            "type": "datetime",
+            "generator": {
+                "type": "Datetime",
+                "inject": {
+                    "MinDate": "2018-03-01",
+                    "MaxDate": "2018-03-31"
+                }
+            }
+        },
+        {
+            "name": "CreateUserId",
+            "type": "int",
+            "generator": {
+                "type": "Int",
+                "inject": {
+                    "Type": "Sequence",
+                    "SourceType": "List",
+                    "List": [1]
+                }
+            }
+        },
+        {
+            "name": "UpdateUserId",
+            "type": "int",
+            "generator": {
+                "type": "Int",
+                "inject": {
+                    "Type": "Sequence",
+                    "SourceType": "List",
+                    "List": [1]
+                }
+            }
+        }
+    ]
+}

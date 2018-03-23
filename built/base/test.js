@@ -1,0 +1,15 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const StringHelper_1 = require("./StringHelper");
+const NumberHelper_1 = require("./NumberHelper");
+const Ref_1 = require("./Ref");
+let str = "abcdefghijkl";
+console.log(StringHelper_1.StringHelper.Insert(str, 2, "123"));
+console.log(StringHelper_1.StringHelper.ReplaceRange(str, 2, 2, "111"));
+let r = new Ref_1.Ref();
+console.log(NumberHelper_1.NumberHelper.TryParse("1", r));
+console.log(r);
+console.log(NumberHelper_1.NumberHelper.TryParse("2", r));
+console.log(r);
+console.log(NumberHelper_1.NumberHelper.TryParse("ab", r));
+console.log(r);

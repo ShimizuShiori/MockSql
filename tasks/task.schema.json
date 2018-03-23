@@ -1,0 +1,90 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "MockDataGenerateTask",
+    "description": "用于生成MockDataSQL脚本的任务配置文件",
+    "type": "object",
+    "properties": {
+        "dbType": {
+            "description": "数据库类型",
+            "type": "string",
+            "enum": ["MSSQL"]
+        },
+        "tableName": {
+            "description": "数据库表名",
+            "type": "string"
+        },
+        "fields": {
+            "description": "所有字段的配置信息",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string"
+                    },
+                    "generator": {
+                        "type": "object",
+                        "properties": {
+                            "type": {
+                                "type": "string",
+                                "enum": ["Int", "String", "Boolean", "Datetime"]
+                            },
+                            "inject": {
+                                "type": "object",
+                                "properties": {
+                                    "MinLength": { "type": "number" },
+                                    "MaxLength": { "type": "number" },
+                                    "MinDate": { "type": "string" },
+                                    "MaxDate": { "type": "string" },
+                                    "Type": {
+                                        "type": "string",
+                                        "enum": [
+                                            "Enum",
+                                            "Random",
+                                            "List",
+                                            "Sequence"
+                                        ]
+                                    },
+                                    "Options": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "SourceType": {
+                                        "type": "string",
+                                        "enum": ["Range", "List"]
+                                    },
+                                    "RangeInfo": {
+                                        "type": "object",
+                                        "properties": {
+                                            "Min": { "type": "number" },
+                                            "Max": { "type": "number" },
+                                            "Step": { "type": "number" }
+                                        },
+                                        "required": ["Min", "Max", "Step"]
+                                    },
+                                    "List": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "number"
+                                        }
+                                    },
+                                    "Rate": {
+                                        "type": "number"
+                                    }
+                                }
+                            }
+                        },
+                        "required": ["type"]
+                    }
+                },
+                "required": ["name", "type", "generator"]
+            }
+        }
+    },
+    "required": ["DbType", "tableName"]
+}
