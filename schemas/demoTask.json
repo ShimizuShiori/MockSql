@@ -1,0 +1,37 @@
+{
+    "$schema": "./task.schema.json",
+    "DbType": "MSSQL",
+    "TableName": "TestTable",
+    "Generators": [
+        {
+            "Name": "String10-100",
+            "Type": "String",
+            "Inject": {
+                "MinLength": 10,
+                "MaxLength": 100,
+                "Type": "Random"
+            }
+        },
+        {
+            "Name": "Int1-4",
+            "Type": "Int",
+            "Inject": {
+                "SourceType": "List",
+                "Type": "Random",
+                "List": [1, 2, 3, 4]
+            }
+        }
+    ],
+    "Fields": [
+        {
+            "Name": "Id",
+            "Type": "int",
+            "GeneratorName": "Int1-4"
+        },
+        {
+            "Name": "Name",
+            "Type": "varchar",
+            "GeneratorName": "String10-100"
+        }
+    ]
+}

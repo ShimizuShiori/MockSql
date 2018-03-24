@@ -9,21 +9,23 @@ import { DatetimeValueGenerator } from "./Generators/DatetimeValueGenerator";
 import { FieldInfo } from "./FieldInfo";
 import fs = require("fs");
 
-declare interface generatorSetting {
-    type: string;
-    inject: any;
+declare interface GeneratorSetting {
+    Name: string;
+    Type: string;
+    Inject: any;
 }
 
 declare interface FieldSetting {
-    name: string;
-    type: string;
-    generator: generatorSetting;
+    Name: string;
+    Type: string;
+    GeneratorName: string;
 }
 
-declare interface taskSetting {
-    dbType: string;
-    tableName: string;
-    fields: FieldSetting[];
+declare interface TaskSetting {
+    Generators: GeneratorSetting[];
+    Fields: FieldSetting[];
+    DbType: string;
+    TableName:string;
 }
 
 ValueGeneratorFactory.RegistGenerator(
@@ -43,16 +45,20 @@ SqlBuilderFactory.ResigtSqlBuilder("MSSQL", key => new MSSQLBuilder());
 
 export default function(taskPath: string) {
     let json = fs.readFileSync(taskPath, "utf8");
-    let taskSettings = JSON.parse(json) as taskSetting;
+    let taskSettings = JSON.parse(json) as TaskSetting;
 
-    let sqlBuilder = SqlBuilderFactory.GetSqlBuilder(taskSettings.dbType);
-    let fields = taskSettings.fields.map<FieldInfo>(x => {
+    let sqlBuilder = SqlBuilderFactory.GetSqlBuilder(taskSettings.DbType);
+    let fields = taskSettings.Fields.map<FieldInfo>(x => {
+        let generatorSetting = taskSettings.Generators.filter(
+            y => y.Name === x.GeneratorName
+        )[0];
+
         return {
-            Name: x.name,
-            Type: x.type,
+            Name: x.Name,
+            Type: x.Type,
             Generator: ValueGeneratorFactory.GetGenerator(
-                x.generator.type,
-                x.generator.inject
+                generatorSetting.Type,
+                generatorSetting.Inject
             )
         };
     });
@@ -64,5 +70,5 @@ export default function(taskPath: string) {
         values.push(singleRowValues);
     }
 
-    console.log(sqlBuilder.Build(taskSettings.tableName, fields, values));
+    console.log(sqlBuilder.Build(taskSettings.TableName, fields, values));
 }

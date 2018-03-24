@@ -1,0 +1,103 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "DbType": {
+            "type": "string",
+            "enum": ["MSSQL"]
+        },
+        "TableName": { "type": "string" },
+        "Generators": {
+            "type": "array",
+            "items": {
+                "properties": {
+                    "Name": { "type": "string" },
+                    "Type": {
+                        "type": "string",
+                        "enum": ["String", "Int", "Boolean", "Datetime"]
+                    },
+                    "Inject": {
+                        "oneOf": [
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "MinLength": { "type": "number" },
+                                    "MaxLength": { "type": "number" },
+                                    "Type": {
+                                        "type": "string",
+                                        "enum": ["Enum", "Random"]
+                                    },
+                                    "Options": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "RangeInfo": {
+                                        "type": "object",
+                                        "properties": {
+                                            "Min": { "type": "number" },
+                                            "Max": { "type": "number" },
+                                            "Step": { "type": "number" }
+                                        }
+                                    },
+                                    "Type": {
+                                        "type": "string",
+                                        "enum": ["Sequence", "Random"]
+                                    },
+                                    "SourceType": {
+                                        "type": "string",
+                                        "enum": ["Range", "List"]
+                                    },
+                                    "List": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "number"
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "Rate": {
+                                        "type": "number"
+                                    }
+                                }
+                            },
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "MinData": { "type": "string" },
+                                    "MaxDate": { "type": "string" }
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "Fields": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "Name": {
+                        "type": "string"
+                    },
+                    "Type": {
+                        "type": "string"
+                    },
+                    "GeneratorName": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}

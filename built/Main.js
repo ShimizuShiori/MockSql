@@ -16,12 +16,13 @@ SqlBuilderFactory_1.SqlBuilderFactory.ResigtSqlBuilder("MSSQL", key => new MSSQL
 function default_1(taskPath) {
     let json = fs.readFileSync(taskPath, "utf8");
     let taskSettings = JSON.parse(json);
-    let sqlBuilder = SqlBuilderFactory_1.SqlBuilderFactory.GetSqlBuilder(taskSettings.dbType);
-    let fields = taskSettings.fields.map(x => {
+    let sqlBuilder = SqlBuilderFactory_1.SqlBuilderFactory.GetSqlBuilder(taskSettings.DbType);
+    let fields = taskSettings.Fields.map(x => {
+        let generatorSetting = taskSettings.Generators.filter(y => y.Name === x.GeneratorName)[0];
         return {
-            Name: x.name,
-            Type: x.type,
-            Generator: ValueGeneratorFactory_1.ValueGeneratorFactory.GetGenerator(x.generator.type, x.generator.inject)
+            Name: x.Name,
+            Type: x.Type,
+            Generator: ValueGeneratorFactory_1.ValueGeneratorFactory.GetGenerator(generatorSetting.Type, generatorSetting.Inject)
         };
     });
     let values = [];
@@ -30,6 +31,6 @@ function default_1(taskPath) {
         singleRowValues = fields.map(x => x.Generator.Generate());
         values.push(singleRowValues);
     }
-    console.log(sqlBuilder.Build(taskSettings.tableName, fields, values));
+    console.log(sqlBuilder.Build(taskSettings.TableName, fields, values));
 }
 exports.default = default_1;

@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const TypeHelper_1 = require("./base/TypeHelper");

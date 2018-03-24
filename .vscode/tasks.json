@@ -28,7 +28,7 @@
         {
             "label": "run index.js",
             "type": "shell",
-            "command": "node built/index.js",
+            "command": "node built/index.js schemas/demoTask.json >> rlt.sql && rlt.sql",
             "dependsOn": ["tsc"]
         },
         {
