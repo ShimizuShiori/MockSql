@@ -144,7 +144,6 @@ export default function(path: string) {
                 break;
             }
         }
-        taskSettings.Generators.push(g);
         taskSettings.Fields = taskSettings.Fields.concat(
             x.Items.map<FieldSetting>(x => {
                 return {

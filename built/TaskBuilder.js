@@ -126,7 +126,6 @@ function default_1(path) {
                 break;
             }
         }
-        taskSettings.Generators.push(g);
         taskSettings.Fields = taskSettings.Fields.concat(x.Items.map(x => {
             return {
                 Name: x.Name,
