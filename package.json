@@ -2,7 +2,7 @@
   "name": "mocksql",
   "version": "1.0.0",
   "description": "scaffold for typescript/javascript project",
-  "main": "built/index.js",
+  "main": "node built/index.js",
   "dependencies": {
     "@types/node": "^9.6.0"
   },
