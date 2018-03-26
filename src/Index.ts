@@ -10,7 +10,7 @@ if (
     TypeHelper.IsNullOrUndefined(path) ||
     TypeHelper.IsNullOrUndefined(action)
 ) {
-    console.error("ERROR : 没有指定参数");
+    console.error("ERROR : 没有指定参数，mocksql [action] [path]");
 } else {
     try {
         doAction(action);
