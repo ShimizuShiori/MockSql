@@ -170,7 +170,10 @@ export class DelayChainResult<TSource> {
     }
 
     public PutItem(item: any, handlerNode: LinkNode<HandlerInfo>) {
-        if (TypeHelper.IsNullOrUndefined(handlerNode)) return;
+        if (TypeHelper.IsNullOrUndefined(handlerNode)) {
+            this.array.push(item);
+            return;
+        }
         try {
             let temp: any = item;
             let curHandler = handlerNode;

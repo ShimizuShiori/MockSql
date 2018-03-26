@@ -1,14 +1,25 @@
 import { TypeHelper } from "./base/TypeHelper";
 import Main from "./Main";
+import TaskBuilder from "./TaskBuilder";
 
-let path: string = process.argv[2];
+let action: string = process.argv[2];
 
-if (TypeHelper.IsNullOrUndefined(path)) {
+let path: string = process.argv[3];
+
+if (
+    TypeHelper.IsNullOrUndefined(path) ||
+    TypeHelper.IsNullOrUndefined(action)
+) {
     console.error("ERROR : 没有指定参数");
 } else {
     try {
-        Main(path);
+        doAction(action);
     } catch (e) {
         console.error("ERROR : " + e);
     }
+}
+
+function doAction(action: string) {
+    if (action === "sql") Main(path);
+    else if (action === "task") TaskBuilder(path);
 }

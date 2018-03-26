@@ -9,23 +9,25 @@ import { DatetimeValueGenerator } from "./Generators/DatetimeValueGenerator";
 import { FieldInfo } from "./FieldInfo";
 import fs = require("fs");
 
-declare interface GeneratorSetting {
+export interface GeneratorSetting {
     Name: string;
     Type: string;
     Inject: any;
 }
 
-declare interface FieldSetting {
+export interface FieldSetting {
     Name: string;
     Type: string;
     GeneratorName: string;
 }
 
-declare interface TaskSetting {
+export interface TaskSetting {
     Generators: GeneratorSetting[];
     Fields: FieldSetting[];
     DbType: string;
-    TableName:string;
+    TableName: string;
+    RowCount: number;
+    $schema?: string;
 }
 
 ValueGeneratorFactory.RegistGenerator(
@@ -64,7 +66,7 @@ export default function(taskPath: string) {
     });
 
     let values: string[][] = [];
-    for (let i = 0; i < 1000; i++) {
+    for (let i = 0; i < taskSettings.RowCount; i++) {
         let singleRowValues: string[] = [];
         singleRowValues = fields.map(x => x.Generator.Generate());
         values.push(singleRowValues);

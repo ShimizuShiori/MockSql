@@ -46,7 +46,7 @@ class IntValueGenerator {
         return this.List[this.currentIndex];
     }
     GenerateByRandom() {
-        return this.List[NumberHelper_1.NumberHelper.Random(0, this.List.length - 1)];
+        return this.List[NumberHelper_1.NumberHelper.Random(0, this.List.length)];
     }
     InitList() {
         if (this.SourceType === IntValueGeneratorSourceType.List)

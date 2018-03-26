@@ -1,0 +1,44 @@
+ID	int	no	4	10   	0    	no	(n/a)	(n/a)	NULL
+OrderId	varchar	no	128	     	     	yes	no	yes	Chinese_PRC_CI_AS
+MaterialNumber	varchar	no	128	     	     	yes	no	yes	Chinese_PRC_CI_AS
+OrderQuantity	int	no	4	10   	0    	yes	(n/a)	(n/a)	NULL
+BasicStartDate	datetime	no	8	     	     	yes	(n/a)	(n/a)	NULL
+BasicFinishDate	datetime	no	8	     	     	yes	(n/a)	(n/a)	NULL
+SystemStatus	varchar	no	128	     	     	yes	no	yes	Chinese_PRC_CI_AS
+MaterialDescription	varchar	no	128	     	     	yes	no	yes	Chinese_PRC_CI_AS
+ActualStartTime	datetime	no	8	     	     	yes	(n/a)	(n/a)	NULL
+ActualFinishDate	datetime	no	8	     	     	yes	(n/a)	(n/a)	NULL
+ChangeDate	datetime	no	8	     	     	yes	(n/a)	(n/a)	NULL
+LastChangedBy	varchar	no	128	     	     	yes	no	yes	Chinese_PRC_CI_AS
+Batch	varchar	no	128	     	     	yes	no	yes	Chinese_PRC_CI_AS
+CreatedOn	datetime	no	8	     	     	yes	(n/a)	(n/a)	NULL
+MRPArea	varchar	no	128	     	     	yes	no	yes	Chinese_PRC_CI_AS
+ReleaseDate	datetime	no	8	     	     	yes	(n/a)	(n/a)	NULL
+TotalScrap	int	no	4	10   	0    	yes	(n/a)	(n/a)	NULL
+ConfirmedFinishDate	datetime	no	8	     	     	yes	(n/a)	(n/a)	NULL
+DeliveredQuantity	int	no	4	10   	0    	yes	(n/a)	(n/a)	NULL
+Deletion	bit	no	1	     	     	yes	(n/a)	(n/a)	NULL
+PlannerGroup	varchar	no	128	     	     	yes	no	yes	Chinese_PRC_CI_AS
+ProfitCenterg	varchar	no	128	     	     	yes	no	yes	Chinese_PRC_CI_AS
+Start	datetime	no	8	     	     	yes	(n/a)	(n/a)	NULL
+WBSElement	varchar	no	128	     	     	yes	no	yes	Chinese_PRC_CI_AS
+InspectionLot	int	no	4	10   	0    	yes	(n/a)	(n/a)	NULL
+StorageLocation	varchar	no	128	     	     	yes	no	yes	Chinese_PRC_CI_AS
+ConfirmationNumber	varchar	no	128	     	     	yes	no	yes	Chinese_PRC_CI_AS
+BaseUnitofMeasure	varchar	no	128	     	     	yes	no	yes	Chinese_PRC_CI_AS
+OrderType	varchar	no	128	     	     	yes	no	yes	Chinese_PRC_CI_AS
+MRPController	varchar	no	128	     	     	yes	no	yes	Chinese_PRC_CI_AS
+ProdnSupervisor	varchar	no	128	     	     	yes	no	yes	Chinese_PRC_CI_AS
+Plant	varchar	no	128	     	     	yes	no	yes	Chinese_PRC_CI_AS
+UnitOfMeasure	varchar	no	128	     	     	yes	no	yes	Chinese_PRC_CI_AS
+ProductionVersion	varchar	no	128	     	     	yes	no	yes	Chinese_PRC_CI_AS
+CustomerPONumber	varchar	no	128	     	     	yes	no	yes	Chinese_PRC_CI_AS
+MESRouting	varchar	no	128	     	     	yes	no	yes	Chinese_PRC_CI_AS
+Priority	varchar	no	128	     	     	yes	no	yes	Chinese_PRC_CI_AS
+RequiredDeliveryDate	datetime	no	8	     	     	yes	(n/a)	(n/a)	NULL
+SalesOrder	varchar	no	128	     	     	yes	no	yes	Chinese_PRC_CI_AS
+SalesOrderItem	int	no	4	10   	0    	yes	(n/a)	(n/a)	NULL
+SchedFloatAfterProd	float	no	8	53   	NULL	yes	(n/a)	(n/a)	NULL
+SchedFloatBeforeProd	float	no	8	53   	NULL	yes	(n/a)	(n/a)	NULL
+SpecialStock	varchar	no	128	     	     	yes	no	yes	Chinese_PRC_CI_AS
+ManagedInfo_ID	int	no	4	10   	0    	yes	(n/a)	(n/a)	NULL

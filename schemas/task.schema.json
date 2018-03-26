@@ -6,6 +6,7 @@
             "type": "string",
             "enum": ["MSSQL"]
         },
+        "RowCount": { "type": "number" },
         "TableName": { "type": "string" },
         "Generators": {
             "type": "array",

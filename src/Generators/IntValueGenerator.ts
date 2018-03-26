@@ -51,7 +51,7 @@ export class IntValueGenerator implements IValueGenerator {
     }
 
     private GenerateByRandom(): number {
-        return this.List[NumberHelper.Random(0, this.List.length - 1)];
+        return this.List[NumberHelper.Random(0, this.List.length)];
     }
 
     private InitList(): void {

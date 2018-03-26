@@ -26,7 +26,7 @@ export class StringValueGenerator implements IValueGenerator {
     }
 
     private GenerateByEnum(): string {
-        return this.Options[NumberHelper.Random(0, this.Options.length - 1)];
+        return this.Options[NumberHelper.Random(0, this.Options.length)];
     }
 
     private GenerateByRandom(): string {
@@ -37,7 +37,7 @@ export class StringValueGenerator implements IValueGenerator {
         let rlt: string[] = [];
 
         while (rlt.length < length) {
-            rlt.push(this.words[NumberHelper.Random(0, this.words.length - 1)]);
+            rlt.push(this.words[NumberHelper.Random(0, this.words.length)]);
         }
         return rlt.join("");
     }

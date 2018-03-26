@@ -28,8 +28,9 @@
         {
             "label": "run index.js",
             "type": "shell",
-            "command": "node built/index.js schemas/demoTask.json >> rlt.sql && rlt.sql",
-            "dependsOn": ["tsc"]
+            "command":
+                "node built/index.js schemas/productOrderRecord.json >> rlt.sql && rlt.sql",
+            "dependsOn": ["tsc", "del rlt"]
         },
         {
             "label": "open sql",

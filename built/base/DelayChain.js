@@ -124,8 +124,10 @@ class DelayChainResult {
             throw ERROR_FULL;
     }
     PutItem(item, handlerNode) {
-        if (TypeHelper_1.TypeHelper.IsNullOrUndefined(handlerNode))
+        if (TypeHelper_1.TypeHelper.IsNullOrUndefined(handlerNode)) {
+            this.array.push(item);
             return;
+        }
         try {
             let temp = item;
             let curHandler = handlerNode;

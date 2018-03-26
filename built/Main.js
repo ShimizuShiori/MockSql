@@ -26,7 +26,7 @@ function default_1(taskPath) {
         };
     });
     let values = [];
-    for (let i = 0; i < 1000; i++) {
+    for (let i = 0; i < taskSettings.RowCount; i++) {
         let singleRowValues = [];
         singleRowValues = fields.map(x => x.Generator.Generate());
         values.push(singleRowValues);
