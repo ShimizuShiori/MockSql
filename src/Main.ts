@@ -8,6 +8,9 @@ import { BooleanValueGenerator } from "./Generators/BooleanGenerator";
 import { DatetimeValueGenerator } from "./Generators/DatetimeValueGenerator";
 import { FieldInfo } from "./FieldInfo";
 import fs = require("fs");
+import cp = require('child_process');
+
+let exec = cp.exec;
 
 export interface GeneratorSetting {
     Name: string;
@@ -72,5 +75,10 @@ export default function(taskPath: string) {
         values.push(singleRowValues);
     }
 
-    console.log(sqlBuilder.Build(taskSettings.TableName, fields, values));
+    fs.writeFileSync(
+        taskPath.split(".")[0] + ".sql",
+        sqlBuilder.Build(taskSettings.TableName, fields, values)
+    );
+
+    exec(taskPath.split(".")[0] + ".sql");
 }

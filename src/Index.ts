@@ -4,10 +4,10 @@ import TaskBuilder from "./TaskBuilder";
 
 let action: string = process.argv[2];
 
-let path: string = process.argv[3];
+let tableName: string = process.argv[3];
 
 if (
-    TypeHelper.IsNullOrUndefined(path) ||
+    TypeHelper.IsNullOrUndefined(tableName) ||
     TypeHelper.IsNullOrUndefined(action)
 ) {
     console.error("ERROR : 没有指定参数，mocksql [action] [path]");
@@ -20,6 +20,6 @@ if (
 }
 
 function doAction(action: string) {
-    if (action === "sql") Main(path);
-    else if (action === "task") TaskBuilder(path);
+    if (action === "sql") Main(tableName + ".json");
+    else if (action === "task") TaskBuilder(tableName + ".txt");
 }

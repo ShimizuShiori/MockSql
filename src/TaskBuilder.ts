@@ -63,7 +63,7 @@ export default function(path: string) {
     let taskSettings: TaskSetting = {
         Generators: [],
         Fields: [],
-        TableName: "",
+        TableName: path.split(".")[0],
         DbType: "MSSQL",
         RowCount: 100
     };
@@ -156,5 +156,10 @@ export default function(path: string) {
         );
     });
 
-    console.log(JSON.stringify(taskSettings));
+    //console.log(JSON.stringify(taskSettings));
+
+    fs.writeFileSync(
+        path.split(".")[0] + ".json",
+        JSON.stringify(taskSettings)
+    );
 }

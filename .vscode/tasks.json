@@ -37,6 +37,24 @@
             "type": "shell",
             "command": "rlt.sql",
             "dependsOn": ["run main.js"]
+        },
+        {
+            "label": "run task",
+            "type": "shell",
+            "command": "node built/index task LES_ProductOrderRecord",
+            "dependsOn": ["tsc"]
+        },
+        {
+            "label": "run sql",
+            "type": "shell",
+            "command": "node built/index sql LES_ProductOrderRecord",
+            "dependsOn": ["run task"]
+        },
+        {
+            "label": "start test",
+            "type": "shell",
+            "dependsOn": ["run sql"],
+            "command": "echo Success"
         }
     ]
 }

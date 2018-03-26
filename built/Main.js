@@ -8,6 +8,8 @@ const IntValueGenerator_1 = require("./Generators/IntValueGenerator");
 const BooleanGenerator_1 = require("./Generators/BooleanGenerator");
 const DatetimeValueGenerator_1 = require("./Generators/DatetimeValueGenerator");
 const fs = require("fs");
+const cp = require("child_process");
+let exec = cp.exec;
 ValueGeneratorFactory_1.ValueGeneratorFactory.RegistGenerator("String", key => new StringValueGenerator_1.StringValueGenerator());
 ValueGeneratorFactory_1.ValueGeneratorFactory.RegistGenerator("Int", key => new IntValueGenerator_1.IntValueGenerator());
 ValueGeneratorFactory_1.ValueGeneratorFactory.RegistGenerator("Boolean", key => new BooleanGenerator_1.BooleanValueGenerator());
@@ -31,6 +33,7 @@ function default_1(taskPath) {
         singleRowValues = fields.map(x => x.Generator.Generate());
         values.push(singleRowValues);
     }
-    console.log(sqlBuilder.Build(taskSettings.TableName, fields, values));
+    fs.writeFileSync(taskPath.split(".")[0] + ".sql", sqlBuilder.Build(taskSettings.TableName, fields, values));
+    exec(taskPath.split(".")[0] + ".sql");
 }
 exports.default = default_1;
